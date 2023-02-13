@@ -1,0 +1,26 @@
+.userdetails{
+    border: 1px  solid;
+    margin:10px auto;
+   
+   
+   
+}
+.filed{
+    width: 25vw;
+}
+legend,h2{
+    font-weight: bold;
+    color: blueviolet;
+}
+
+
+.submit{
+    margin-left:420px;
+    color: darkgreen;
+    font-weight: bold;
+}
+.forflex{
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
+}

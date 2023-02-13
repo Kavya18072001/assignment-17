@@ -1,0 +1,76 @@
+<div class="form">
+    <h2>Registration Form</h2>
+   <form [formGroup]="registerForm" class="padding form-group"  (ngSubmit)="onsubmit()" > <!--connecting a FormGroup instance to a form in the HTML template. -->
+    <div class="bottomspace">
+        <span>Frist Name:</span>
+        <input class="block" type="text"  placeholder="enter the Fristname..." formControlName="firstname" >
+        <div class="red" *ngIf="! registerForm.get('firstname').valid && registerForm.get('firstname').touched">{{registerForm.get('firstname').errors['msg']}}</div>
+
+        <!--<div>
+            <span class="red" *ngIf="registerForm.get('firstname').errors['required']"></span>
+        </div>-->
+        <!--<span class="red"*ngIf="!registerForm.get('firstname').valid && registerForm.get('firstname').touched"></span>-->
+    </div>
+    <div class="bottomspace">
+        <span>Last Name:</span>
+        <input class="block" type="text"placeholder="enter the Lastname..." formControlName="lastname">
+        <div class="red" *ngIf="! registerForm.get('lastname').valid && registerForm.get('lastname').touched">{{registerForm.get('lastname').errors['msg']}}</div>
+       <!--<span class="red"*ngIf="!registerForm.get('lastname').valid && registerForm.get('lastname').touched"></span>--> 
+    </div>
+    <div class="bottomspace">
+        <span>Age:</span>
+        <input class="block" type="text"placeholder="enter the age..." formControlName="age">
+        <div class="red" *ngIf="! registerForm.get('age').valid && registerForm.get('age').touched">{{registerForm.get('age').errors['msg']}}</div>
+      
+       <!--<span class="red"*ngIf="!registerForm.get('lastname').valid && registerForm.get('lastname').touched"></span>-->
+    </div>
+    <div class="bottomspace">
+        <span>User Name:</span>
+        <input class="block" type="text" placeholder="enter the User name..."formControlName="Username">
+        <div class="red" *ngIf="! registerForm.get('Username').valid && registerForm.get('Username').touched">{{registerForm.get('Username').errors['msg']}}</div>
+      
+               
+          <!--<span class="red"*ngIf="!registerForm.get('lastname').valid && registerForm.get('lastname').touched"></span>-->
+    </div>
+    <div class="bottomspace">
+        <span>Email:</span>
+        <input  class="block" type="text" placeholder="kavya@gmail.com" formControlName="email">
+        <div class="red" *ngIf="! registerForm.get('email').valid && registerForm.get('email').touched">{{registerForm.get('email').errors['msg']}}</div>
+<!--<span class="red"*ngIf="!registerForm.get('lastname').valid && registerForm.get('lastname').touched"></span>-->
+ 
+    </div>
+    <div class="bottomspace">
+        <span>Phone Number:</span>
+        <input  class="block" type="text" placeholder="enter the phone number..." formControlName="phnno">
+        <div class="red" *ngIf="! registerForm.get('phnno').valid && registerForm.get('phnno').touched">{{registerForm.get('phnno').errors['msg']}}</div>
+ 
+        <!--<span class="red"*ngIf="!registerForm.get('lastname').valid && registerForm.get('lastname').touched"></span>-->
+ 
+    </div>
+    <div class="bottomspace">
+        <span>Additional Data:</span>
+        <input  class="block" (input)="addtolabel($event)"type="text" formControlName="additionaldata">
+    </div>
+    <div>
+        <div  class="childcomponent" *ngFor="let i of addonemorecomponent"  index as i > 
+           <app-child  class=""(inputchild)="toaddvalue($event)" ></app-child>
+           <!-- <button class="Closebutton" onclick="remove(i)">Close</button> -->
+        </div>
+            
+            <button class="addbutton"  (click)="addComponent($event)">Add</button>
+        </div>
+     
+
+        <div class="bottomspace" >
+            <span>Add Label:{{labeldata}}</span>  
+        </div>
+        <div class="bottomspace">
+            <span>Add value:{{addtoparent}}</span>
+        </div>
+   
+    <div class="leftmargin">
+    <button class="btn" type="submit" (click)=" onsubmit()">Register</button> 
+    <button class="btn reset" type="reset" >Reset</button>
+    </div>
+   </form>
+</div>
